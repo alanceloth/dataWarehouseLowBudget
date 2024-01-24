@@ -76,4 +76,5 @@ duckdb
 # Contact
 
 LinkedIn: [Alan Lanceloth Rodrigues Silva](https://www.linkedin.com/in/alanlanceloth/)
+
 E-mail: [alan.lanceloth@gmail.com](mailto:alan.lanceloth@gmail.com)
