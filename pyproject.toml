@@ -10,6 +10,7 @@ python = "^3.10"
 ignr = "^2.2"
 pre-commit = "^3.6.0"
 mkdocs = "^1.5.3"
+duckdb = "^0.9.2"
 
 
 [build-system]
