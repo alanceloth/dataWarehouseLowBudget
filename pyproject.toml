@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "mydefaultdataproject"
+version = "0.1.0"
+description = ""
+authors = ["Alan Lanceloth Rodrigues Silva <alan.lanceloth@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+ignr = "^2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
