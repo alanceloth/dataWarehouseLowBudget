@@ -3,7 +3,7 @@ Welcome to my default Data Project Repo.
 
 To use this project structure you will need to follow the steps below.
 
-# Dependencies
+# Requirements
 To use this project properly, you will need to install:
 - [python](https://www.python.org/downloads/)
 - [git](https://git-scm.com/downloads)
@@ -72,6 +72,23 @@ In the terminal:
 ```bash
 duckdb
 ```
+
+# Folder Structure
+
+The basic project folder structure are shown below.
+.
+├── .vscode
+├── docs
+├── scripts
+├── src
+└── tests
+
+.vscode: VSCODE setting to the project session, like font size.
+docs: documentation folder, will store the mkdocs index.md
+scripts: any script related to automation, instalation, compilation, test execution.
+src: the source code folder
+tests: the automated test folder to check the source code
+
 
 # Contact
 
