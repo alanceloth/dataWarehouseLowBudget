@@ -76,12 +76,14 @@ duckdb
 # Folder Structure
 
 The basic project folder structure are shown below.
+```bash
 .
 ├── .vscode
 ├── docs
 ├── scripts
 ├── src
 └── tests
+```
 
 .vscode: VSCODE setting to the project session, like font size.
 docs: documentation folder, will store the mkdocs index.md
