@@ -1,1 +1,7 @@
-site_name: My Docs
+site_name: Default Project Documentation
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings
