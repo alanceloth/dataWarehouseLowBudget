@@ -8,6 +8,7 @@ __pycache__/
 *$py.class
 
 # C extensions
+*.csv
 *.so
 
 # Distribution / packaging
