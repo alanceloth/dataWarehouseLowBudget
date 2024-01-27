@@ -7,7 +7,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#AWS Keys
+keys/
+
 # C extensions
+*.duckdb
+*.parquet
 *.csv
 *.so
 
