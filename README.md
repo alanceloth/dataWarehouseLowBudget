@@ -66,30 +66,27 @@ poetry env use 3.11.5
 poetry install
 ```
 
-## Testing
+## Testing the project set up
+Before test the project, make sure that you have installed duckdb properly. To do that, check if you have the duckdb in your terminal.
 
 In the terminal:
 ```bash
 duckdb
 ```
+If the above code don't work properly, go to the [duckdb download page](https://duckdb.org/docs/installation/index?version=latest&environment=cli&installer=binary&platform=win) and get the latest zip file. Extract the duckdb.exe and put inside your project folder. This will allow you to use the duckdb in the terminal.
+Another option is to do the winget installation step recomended in the documentation (for windows, for other OS check the documentation).
 
-# Folder Structure
-
-The basic project folder structure are shown below.
 ```bash
-.
-├── .vscode
-├── docs
-├── scripts
-├── src
-└── tests
+winget install DuckDB.cli
 ```
 
-.vscode: VSCODE setting to the project session, like font size.
-docs: documentation folder, will store the mkdocs index.md
-scripts: any script related to automation, instalation, compilation, test execution.
-src: the source code folder
-tests: the automated test folder to check the source code
+# The project
+
+This project uses the duckdb as a local database and to serve as a developer ambience. The raw data of this project was some .csv files (2GB of csv files) that have been loaded inside the duckdb database. The purpose of the duckdb is to get the csv files, create a table in a local database file, and then export this table to a .parquet file in a AWS S3 Bucket.
+
+Then, we use the dbt to get this data from AWS S3 Bucket and do some transformations, and load in a database local file.
+
+The dbt also build a local documentation for all the transformations, schemas, testing and everithing related to this layer of the project.
 
 
 # Contact
