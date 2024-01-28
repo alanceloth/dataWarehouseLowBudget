@@ -1,27 +1,35 @@
 
 # Project Overview
 
-This project utilizes DuckDB as a local database for development purposes. The raw data for this project comprises several .csv files, totaling 2GB, which have been loaded into the DuckDB database. The primary objective of DuckDB is to take the .csv files, create a table in a local database file, and subsequently export this table to a .parquet file in an AWS S3 Bucket.
+![Data Warehouse Project](docs/images/dwlowbudget.png)
 
-Following this, the project leverages dbt (data build tool) to retrieve data from the AWS S3 Bucket, perform transformations, and load it into a local database file. Additionally, dbt is responsible for generating a local documentation covering all transformations, schemas, tests, and other relevant information within this layer of the project.
+This project utilizes DuckDB as a local database for development purposes. The raw data for this project comprises several .csv files, totaling 2GB, which have been converted to parquet files due the size and processing speed (columnar format). All files will be loaded with a Streamlit frontend using Pydantic for data governance (contract). This process will be orchestrated using Airbyte and Python. To change the contract, it will need an approval in the GitHub repo. To ensure that everyone have the same contract, it will be implemented an CI/CD process.
+
+Following this, the project leverages dbt (data build tool) to retrieve data from the AWS S3 Bucket, perform transformations, and load it into a PostgreSQL for production. Additionally, dbt is responsible for generating a local documentation covering all transformations, schemas, tests, and other relevant information within this layer of the project.
 
 ## TODO List
 
-- [x] Extract data from .csv files into DuckDB
-- [x] Create the transactions table from the appended files
-- [x] Export the transactions table to a local .parquet file
-- [x] Export the transactions table to a .parquet file in the AWS S3 Bucket
-- [x] Establish the dbt project
-- [x] Retrieve data from the AWS S3 Bucket into dbt
-- [x] Create the transaction table within the dbt project
-- [x] Define the transaction table schema in the dbt project (including tests for each column)
-- [x] Initial testing and building of the dbt project
-- [ ] Decompose the transaction table into Fact and Dimension tables
-- [ ] Create schemas for Fact and Dimension tables in the dbt project (including tests for each column)
-- [ ] Second round of testing and building for the dbt project
-- [ ] Update dbt documentation with comprehensive details related to the project
-- [ ] Publish the dbt documentation on GitHub Pages
-
+- [ ] **Create the pydantic GitHub repo with Branch Protection**: Establish the pydantic GitHub repository with Branch Protection; contract modifications require approval.
+- [ ] **Create the pydantic contract**: Define the pydantic contract to govern data handling within the project.
+- [ ] **Create the CI/CD for the contract**: Develop the CI/CD process in the contract GitHub repository.
+- [ ] **Create the Streamlit page to upload CSV files**: Develop a Streamlit page to streamline the process of uploading CSV files.
+- [ ] **Transform the CSV files into Parquet files**: Implement the necessary procedures to transform CSV files into Parquet files.
+- [ ] **Save the Parquet files into AWS S3 Bucket**: Set up mechanisms to save the Parquet files into the designated AWS S3 Bucket.
+- [ ] **Establish the dbt project**: Initiate the creation of the dbt project for seamless data management.
+- [ ] **Extract data from AWS S3 Bucket Parquet files into DuckDB using dbt**: Utilize dbt to extract and process data from AWS S3 Bucket Parquet files into DuckDB.
+- [ ] **Create the transactions table from the appended files**: Develop the transactions table based on the processed files.
+- [ ] **Create the transaction table within the dbt project**: Establish the transaction table structure within the dbt project.
+- [ ] **Define the transaction table schema in the dbt project (including tests for each column)**: Specify the schema for the transaction table in the dbt project, including comprehensive tests for each column.
+- [ ] **Export the transactions table to a Parquet file in the AWS S3 Bucket**: Implement procedures to export the transactions table to a Parquet file within the AWS S3 Bucket.
+- [ ] **Initial testing and building of the dbt project**: Conduct initial testing and building phases for the dbt project.
+- [ ] **Decompose the transaction table into Fact and Dimension tables**: Break down the transaction table into separate Fact and Dimension tables.
+- [ ] **Create schemas for Fact and Dimension tables in the dbt project (including tests for each column)**: Develop schemas for Fact and Dimension tables within the dbt project, accompanied by thorough tests for each column.
+- [ ] **Second round of testing and building for the dbt project**: Conduct a second round of testing and building for the dbt project.
+- [ ] **Load the Fact and Dimension tables into PostgreSQL**: Implement processes to load the Fact and Dimension tables into PostgreSQL.
+- [ ] **Update dbt documentation with comprehensive details related to the project**: Enhance the dbt documentation with detailed information regarding the entire project.
+- [ ] **Publish the dbt documentation on GitHub Pages**: Make the dbt documentation accessible by publishing it on GitHub Pages.
+- [ ] **Create a PowerBI Dashboard using the data**: Develop a PowerBI Dashboard utilizing the processed data.
+- [ ] **Create a Jupyter Notebook using the data**: Generate a Jupyter Notebook incorporating the processed data.
 
 
 To use this project structure you will need to follow the steps below.
