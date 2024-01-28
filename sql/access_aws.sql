@@ -7,8 +7,8 @@ INSTALL httpfs;
 LOAD httpfs;
 -- Minimum configuration for loading S3 dataset if the bucket is public
 SET s3_region='us-east-2';
-SET s3_access_key_id='AWS_KEY_ID';
-SET s3_secret_access_key='AWS_SECRET_KEY';
+SET s3_access_key_id='aws_key';
+SET s3_secret_access_key='aws_secret';
 -- Cria a tabela lendo dos arquivos parquet
 DROP TABLE transactions;
 
@@ -53,6 +53,13 @@ COPY (SELECT product_name, ROUND(SUM(price), 2) as total_revenue
 TO 's3://datawarehouse-duckdb-alanceloth/sales/kpi.csv' WITH (FORMAT CSV, HEADER);
 
 
+INSTALL httpfs;
+LOAD httpfs;
+-- Minimum configuration for loading S3 dataset if the bucket is public
+SET s3_region='us-east-2';
+SET s3_access_key_id='AWS_KEY_ID';
+SET s3_secret_access_key='AWS_SECRET_KEY';
+
 CREATE TABLE transactions_consolidado (
     transaction_id UUID,
     time_of_transaction TIMESTAMP,
@@ -65,8 +72,14 @@ CREATE TABLE transactions_consolidado (
     source_path VARCHAR
 );
 
+CREATE TEMPORARY TABLE temp_csv AS SELECT * FROM read_csv_auto('./data/csv/*.csv', filename=true);
+COPY temp_csv TO './data/csv/daily_sales.parquet' (FORMAT 'parquet');
+
+COPY temp_csv TO 's3://datawarehouse-duckdb-alanceloth/sales/daily_sales.parquet' (FORMAT 'parquet');
+
+
 -- Carrega dados do arquivo CSV para a tabela temporária, incluindo o nome do arquivo
-CREATE TABLE temp_table AS SELECT *, CURRENT_TIMESTAMP AS created_at FROM read_parquet('s3://datawarehouse-duckdb-alanceloth/sales/*.parquet');
+CREATE TABLE temp_table AS SELECT *, CURRENT_TIMESTAMP AS created_at FROM read_parquet('s3://datawarehouse-duckdb-alanceloth/sales/daily_sales.parquet');
 
 SELECT * FROM temp_table;
 -- Insere dados da tabela temporária para a tabela principal com nomes de colunas modificados
@@ -76,12 +89,13 @@ SELECT transaction_id, transaction_time, ean, product_name, price, store, operat
 -- Remove a tabela temporária
 DROP TABLE temp_table;
 
+DROP TABLE transactions_consolidado;
+
 -- Verifica os dados inseridos
 SELECT * FROM transactions_consolidado;
 
 -- Exportando uma tabela completa
-COPY transactions_consolidado TO 's3://datawarehouse-duckdb-alanceloth/sales/consolidado/consolidado.parquet';
-
+COPY transactions_consolidado TO 's3://datawarehouse-duckdb-alanceloth/sales/consolidado/consolidado.parquet' (FORMAT 'parquet');
 
 -- Drop table
 DROP TABLE transactions;
