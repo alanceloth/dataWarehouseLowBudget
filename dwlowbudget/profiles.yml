@@ -1,0 +1,25 @@
+dbt_project_dwlowbudget:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: dbt.duckdb
+      extensions:
+        - httpfs
+        - parquet
+      settings:
+        s3_region: us-east-2
+        s3_access_key_id: "{{ env_var('AWS_S3_ACCESS_KEY_ID') }}"
+        s3_secret_access_key: "{{ env_var('AWS_S3_SECRET_ACCESS_KEY') }}"
+    prod:
+      type: duckdb
+      path: dbt.duckdb
+      extensions:
+        - httpfs
+        - parquet
+      settings:
+        s3_region: us-east-2
+        s3_access_key_id: "{{ env_var('AWS_S3_ACCESS_KEY_ID') }}"
+        s3_secret_access_key: "{{ env_var('AWS_S3_SECRET_ACCESS_KEY') }}"
+
+

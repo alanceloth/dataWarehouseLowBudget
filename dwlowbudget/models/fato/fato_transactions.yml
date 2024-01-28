@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: fato_transactions
+    description: "Modelo de fato das vendas"
+    columns:
+    - name: transaction_id
+      description: "Identificador único da transação"
+      tests:
+        - not_null
+
+    - name: time_of_transaction
+      description: "Timestamp da transação"
+      tests:
+        - not_null
+        
+    - name: ean_of_product
+      description: "Código EAN (código de barras) do produto"
+      tests:
+        - not_null
+        
+    - name: store
+      description: "ID da Loja"
+      tests:
+        - not_null
+    
+    - name: price
+      description: "Preço do produto"
+      tests:
+        - not_null
+
+    - name: price_greater_than_20
+      description: "Flag que indica se o preço do produto maior que 20"
+      tests:
+        - accepted_values:
+            values: ['true', 'false']
+
+    - name: period
+      description: "Periodo do dia da transação"
+      tests:
+        - accepted_values:
+            values: ['Dawn', 'Morning', 'Afternoon', 'Night', 'Unknown']
