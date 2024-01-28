@@ -1,5 +1,28 @@
 
-Welcome to my default Data Project Repo.
+# Project Overview
+
+This project utilizes DuckDB as a local database for development purposes. The raw data for this project comprises several .csv files, totaling 2GB, which have been loaded into the DuckDB database. The primary objective of DuckDB is to take the .csv files, create a table in a local database file, and subsequently export this table to a .parquet file in an AWS S3 Bucket.
+
+Following this, the project leverages dbt (data build tool) to retrieve data from the AWS S3 Bucket, perform transformations, and load it into a local database file. Additionally, dbt is responsible for generating a local documentation covering all transformations, schemas, tests, and other relevant information within this layer of the project.
+
+## TODO List
+
+- [x] Extract data from .csv files into DuckDB
+- [x] Create the transactions table from the appended files
+- [x] Export the transactions table to a local .parquet file
+- [x] Export the transactions table to a .parquet file in the AWS S3 Bucket
+- [x] Establish the dbt project
+- [x] Retrieve data from the AWS S3 Bucket into dbt
+- [x] Create the transaction table within the dbt project
+- [x] Define the transaction table schema in the dbt project (including tests for each column)
+- [x] Initial testing and building of the dbt project
+- [ ] Decompose the transaction table into Fact and Dimension tables
+- [ ] Create schemas for Fact and Dimension tables in the dbt project (including tests for each column)
+- [ ] Second round of testing and building for the dbt project
+- [ ] Update dbt documentation with comprehensive details related to the project
+- [ ] Publish the dbt documentation on GitHub Pages
+
+
 
 To use this project structure you will need to follow the steps below.
 
@@ -79,30 +102,6 @@ Another option is to do the winget installation step recomended in the documenta
 ```bash
 winget install DuckDB.cli
 ```
-
-# Project Overview
-
-This project utilizes DuckDB as a local database for development purposes. The raw data for this project comprises several .csv files, totaling 2GB, which have been loaded into the DuckDB database. The primary objective of DuckDB is to take the .csv files, create a table in a local database file, and subsequently export this table to a .parquet file in an AWS S3 Bucket.
-
-Following this, the project leverages dbt (data build tool) to retrieve data from the AWS S3 Bucket, perform transformations, and load it into a local database file. Additionally, dbt is responsible for generating a local documentation covering all transformations, schemas, tests, and other relevant information within this layer of the project.
-
-## TODO List
-
-- [x] Extract data from .csv files into DuckDB
-- [x] Create the transactions table from the appended files
-- [x] Export the transactions table to a local .parquet file
-- [x] Export the transactions table to a .parquet file in the AWS S3 Bucket
-- [x] Establish the dbt project
-- [x] Retrieve data from the AWS S3 Bucket into dbt
-- [x] Create the transaction table within the dbt project
-- [x] Define the transaction table schema in the dbt project (including tests for each column)
-- [x] Initial testing and building of the dbt project
-- [ ] Decompose the transaction table into Fact and Dimension tables
-- [ ] Create schemas for Fact and Dimension tables in the dbt project (including tests for each column)
-- [ ] Second round of testing and building for the dbt project
-- [ ] Update dbt documentation with comprehensive details related to the project
-- [ ] Publish the dbt documentation on GitHub Pages
-
 
 
 # Contact
