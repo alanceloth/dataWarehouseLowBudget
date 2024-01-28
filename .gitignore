@@ -10,6 +10,9 @@ __pycache__/
 #AWS Keys
 keys/
 
+#duckdb exe
+duckdb.exe
+
 # C extensions
 *.duckdb
 *.parquet
