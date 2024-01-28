@@ -41,8 +41,8 @@ To learn how to manage multiple python versions using pyenv, check [this article
 ## Git Clone
 Open a terminal window (cmd, bash, or anything with git commands) and type:
 ```bash
-git clone https://github.com/alanceloth/myDefaultDataProject.git
-cd myDefaultDataProject
+git clone https://github.com/alanceloth/dataWarehouseLowBudget.git
+cd dataWarehouseLowBudget
 ```
 
 ## Setting up the environment
