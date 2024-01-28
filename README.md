@@ -80,13 +80,29 @@ Another option is to do the winget installation step recomended in the documenta
 winget install DuckDB.cli
 ```
 
-# The project
+# Project Overview
 
-This project uses the duckdb as a local database and to serve as a developer ambience. The raw data of this project was some .csv files (2GB of csv files) that have been loaded inside the duckdb database. The purpose of the duckdb is to get the csv files, create a table in a local database file, and then export this table to a .parquet file in a AWS S3 Bucket.
+This project utilizes DuckDB as a local database for development purposes. The raw data for this project comprises several .csv files, totaling 2GB, which have been loaded into the DuckDB database. The primary objective of DuckDB is to take the .csv files, create a table in a local database file, and subsequently export this table to a .parquet file in an AWS S3 Bucket.
 
-Then, we use the dbt to get this data from AWS S3 Bucket and do some transformations, and load in a database local file.
+Following this, the project leverages dbt (data build tool) to retrieve data from the AWS S3 Bucket, perform transformations, and load it into a local database file. Additionally, dbt is responsible for generating a local documentation covering all transformations, schemas, tests, and other relevant information within this layer of the project.
 
-The dbt also build a local documentation for all the transformations, schemas, testing and everithing related to this layer of the project.
+## TODO List
+
+- [x] Extract data from .csv files into DuckDB
+- [x] Create the transactions table from the appended files
+- [x] Export the transactions table to a local .parquet file
+- [x] Export the transactions table to a .parquet file in the AWS S3 Bucket
+- [x] Establish the dbt project
+- [x] Retrieve data from the AWS S3 Bucket into dbt
+- [x] Create the transaction table within the dbt project
+- [x] Define the transaction table schema in the dbt project (including tests for each column)
+- [x] Initial testing and building of the dbt project
+- [ ] Decompose the transaction table into Fact and Dimension tables
+- [ ] Create schemas for Fact and Dimension tables in the dbt project (including tests for each column)
+- [ ] Second round of testing and building for the dbt project
+- [ ] Update dbt documentation with comprehensive details related to the project
+- [ ] Publish the dbt documentation on GitHub Pages
+
 
 
 # Contact
