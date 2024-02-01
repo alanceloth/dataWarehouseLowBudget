@@ -20,7 +20,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Check if there are any changes
+      id: verify_diff
+      run: |
+        cd contract
+        git diff --quiet . || echo "changed=true" >> $GITHUB_OUTPUT
+        
     - name: Update Contract
+      if: steps.verify_diff.outputs.changed == 'true'
       run: |
         cd contract
         git pull origin master || true
