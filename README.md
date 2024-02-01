@@ -9,9 +9,12 @@ Following this, the project leverages dbt (data build tool) to retrieve data fro
 
 ## TODO List
 
-- [ ] **Create the pydantic GitHub repo with Branch Protection**: Establish the pydantic GitHub repository with Branch Protection; contract modifications require approval.
-- [ ] **Create the pydantic contract**: Define the pydantic contract to govern data handling within the project.
-- [ ] **Create the CI/CD for the contract**: Develop the CI/CD process in the contract GitHub repository.
+- [x] **Create the pydantic GitHub repo with Branch Protection**: Establish the pydantic GitHub repository with Branch Protection; contract modifications require approval.
+- [x] **Create the pydantic contract**: Define the pydantic contract to govern data handling within the project.
+- [x] **Create the CI/CD for the contract**: Develop the CI/CD process in the contract GitHub repository.
+    - [x] Add the contract as a submodule to the main repo.
+    - [x] Configure the CI/CD using the GitHub Actions.
+    - [x] Test the Workflow.
 - [ ] **Create the Streamlit page to upload CSV files**: Develop a Streamlit page to streamline the process of uploading CSV files.
 - [ ] **Transform the CSV files into Parquet files**: Implement the necessary procedures to transform CSV files into Parquet files.
 - [ ] **Save the Parquet files into AWS S3 Bucket**: Set up mechanisms to save the Parquet files into the designated AWS S3 Bucket.
@@ -109,6 +112,28 @@ Another option is to do the winget installation step recomended in the documenta
 
 ```bash
 winget install DuckDB.cli
+```
+
+
+# Help
+
+Manual contract update using submodule:
+
+```bash
+# At the submodule directory
+cd contract
+
+# Update to the most recent version
+git pull origin master
+
+# Back to the main directory
+cd ..
+
+# Confirm the updates at the main repo
+git add contract
+git commit -m "Update contract"
+git push origin master
+
 ```
 
 
