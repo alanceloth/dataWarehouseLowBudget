@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Configure Git Identity
+      run: |
+        git config user.email "alan.lanceloth@gmail.com"
+        git config user.name "Alan Lanceloth"
+    
     - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Update Contract
       run: |
-        git config user.name "Alan Lanceloth"
-        git config user.email "alan.lanceloth@gmail.com"
         cd contract
         git pull origin master
         cd ..
