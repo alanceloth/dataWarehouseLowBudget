@@ -18,6 +18,8 @@ jobs:
         cd contract
         git pull origin master
         cd ..
+        git config user.name "Alan Lanceloth"
+        git config user.email "alan.lanceloth@gmail.com"
         git add contract
         git commit -m "workflow: Update contract"
         git push origin master
