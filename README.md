@@ -9,12 +9,12 @@ Following this, the project leverages dbt (data build tool) to retrieve data fro
 
 ## TODO List
 
-- [x] **Create the pydantic GitHub repo with Branch Protection**: Establish the pydantic GitHub repository with Branch Protection; contract modifications require approval.
-- [x] **Create the pydantic contract**: Define the pydantic contract to govern data handling within the project.
-- [x] **Create the CI/CD for the contract**: Develop the CI/CD process in the contract GitHub repository.
-    - [x] Add the contract as a submodule to the main repo.
-    - [x] Configure the CI/CD using the GitHub Actions.
-    - [x] Test the Workflow.
+- :white_check_mark: **Create the pydantic GitHub repo with Branch Protection**: Establish the pydantic GitHub repository with Branch Protection; contract modifications require approval.
+- :white_check_mark: **Create the pydantic contract**: Define the pydantic contract to govern data handling within the project.
+- :white_check_mark: **Create the CI/CD for the contract**: Develop the CI/CD process in the contract GitHub repository.
+    - :white_check_mark: Add the contract as a submodule to the main repo.
+    - :white_check_mark: Configure the CI/CD using the GitHub Actions.
+    - :white_check_mark: Test the Workflow.
 - [ ] **Create the Streamlit page to upload CSV files**: Develop a Streamlit page to streamline the process of uploading CSV files.
 - [ ] **Transform the CSV files into Parquet files**: Implement the necessary procedures to transform CSV files into Parquet files.
 - [ ] **Save the Parquet files into AWS S3 Bucket**: Set up mechanisms to save the Parquet files into the designated AWS S3 Bucket.
