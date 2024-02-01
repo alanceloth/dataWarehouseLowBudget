@@ -12,8 +12,8 @@ jobs:
     steps:
     - name: Configure Git Identity
       run: |
-        git config user.email "alan.lanceloth@gmail.com"
-        git config user.name "Alan Lanceloth"
+        git config --global user.email "alan.lanceloth@gmail.com"
+        git config --global user.name "Alan Lanceloth"
     
     - name: Checkout repository
       uses: actions/checkout@v2
