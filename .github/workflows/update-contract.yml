@@ -1,0 +1,23 @@
+name: Update Contract
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-contract:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Update Contract
+      run: |
+        cd contract
+        git pull origin master
+        cd ..
+        git add contract
+        git commit -m "workflow: Update contract"
+        git push origin master
