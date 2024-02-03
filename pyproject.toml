@@ -17,6 +17,7 @@ pymdown-extensions = "^10.7"
 mkdocs-bootstrap386 = "^0.0.2"
 duckdb = "^0.9.2"
 dbt-duckdb = "^1.7.1"
+streamlit = "^1.31.0"
 
 
 [build-system]
