@@ -25,11 +25,11 @@ def process_csv(uploaded_file):
     try:
         df = pd.read_csv(uploaded_file)
         
-        extra_cols = set(df.columns) - set(contract.model_fields.keys())
+        extra_cols = set(df.columns) - set(Transaction.model_fields.keys())
         if extra_cols:
             return False, f"CSV file contains extra columns: {', '.join(extra_cols)}"
 
-        missing_cols = set(contract.model_fields.keys()) - set(df.columns)
+        missing_cols = set(Transaction.model_fields.keys()) - set(df.columns)
         if missing_cols:
             return False, f"CSV file is missing columns: {', '.join(missing_cols)}"
 
@@ -37,7 +37,7 @@ def process_csv(uploaded_file):
         
         for index, row in df.iterrows():
             try:
-                _ = contract(**row.to_dict())
+                _ = Transaction(**row.to_dict())
             except Exception as e:
                 raise ValueError(f"Row {index + 1}: {e}")
         
