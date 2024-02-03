@@ -1,7 +1,14 @@
 import pandas as pd 
-from contract import contract
-from dotenv import load_dotenv
 import os
+import sys
+from dotenv import load_dotenv
+
+root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(root_path)
+
+from contract.contract.contract import Transaction 
+
+
 
 
 load_dotenv("keys/.env")
