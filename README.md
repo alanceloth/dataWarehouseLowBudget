@@ -16,11 +16,11 @@ Following this, the project leverages dbt (data build tool) to retrieve data fro
     - :white_check_mark: Configure the CI/CD using the GitHub Actions.
     - :white_check_mark: Test the Workflow.
 - :white_check_mark: **Add Sentry as the Observability tool**: Add Sentry to the project
-- :warning: **Create the Streamlit page to upload CSV files**: Develop a Streamlit page to streamline the process of uploading CSV files.
+- :white_check_mark: **Create the Streamlit page to upload CSV files**: Develop a Streamlit page to streamline the process of uploading CSV files.
     - :white_check_mark: Create the streamlit frontend to upload files
     - :white_check_mark: Create the backend to process the uploaded csv files and check if the schema are corret using the pydantic contract
     - :white_check_mark: Create the app.py to execute the application
-    - :warning: Test the upload
+    - :white_check_mark: Test the upload
 - [ ] **Transform the CSV files into Parquet files**: Implement the necessary procedures to transform CSV files into Parquet files.
 - [ ] **Save the Parquet files into AWS S3 Bucket**: Set up mechanisms to save the Parquet files into the designated AWS S3 Bucket.
 - [ ] **Establish the dbt project**: Initiate the creation of the dbt project for seamless data management.
