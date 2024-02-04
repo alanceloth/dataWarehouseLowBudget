@@ -39,3 +39,4 @@ def main():
 if __name__ == "__main__":
     main()
         
+#to run: streamlit run c:/Users/alan_/dataWarehouseLowBudget/src/app.py
