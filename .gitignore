@@ -10,6 +10,9 @@ __pycache__/
 #AWS Keys
 keys/
 
+#airbyte
+airbyte/
+
 #duckdb exe
 duckdb.exe
 
