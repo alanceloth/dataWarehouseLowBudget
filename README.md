@@ -59,38 +59,46 @@ Open a terminal window (cmd, bash, or anything with git commands) and type:
 ```bash
 git clone https://github.com/alanceloth/dataWarehouseLowBudget.git
 cd dataWarehouseLowBudget
+git init
 ```
+
+## Create new GitHub Repo from existing one
+In the terminal window, type:
+```bash
+gh repo create
+```
+Choose the third option: Push an existing local repository to GitHub.
+Choose the current path (just put a dot "." and hit enter)
+Follow the instructions on screen, add a remote called 'master', and that's it!
 
 ## Setting up the environment
 We will need python 3.11.5, and to get this version we will use pyenv.
 In the same terminal window, type:
 
+If you never used pyenv, or if you don't have the 3.11.5 version in your pyenv:
 ```bash
 pyenv update
-pyenv install --list
+pyenv install --l
 ```
-If you find the 3.11.5, then it's everithing correct.
 
+If you find the 3.11.5, then it's everything correct.
 ```bash
-pyenv install -v 3.11.5
+pyenv install 3.11.5
 ```
 
 To check the python versions installed, use this:
 ```bash
 pyenv versions
 ```
+
 You will notice that one of the versions will have a * symbol. This indicates that the system is using this version.
 You can also check the default python version used by the system with this:
-```bash
-python -v
-```
-Or:
 ```bash
 which python
 ```
 
+If you have the 3.11.5 version in your pyenv:
 To use the project python version (3.11.5), use the command below:
-
 ```bash
 pyenv local 3.11.5
 ```
@@ -98,15 +106,13 @@ pyenv local 3.11.5
 ## Poetry
 
 To initialize the poetry in the project, type in the terminal:
-
 ```bash
-poetry shell
 poetry env use 3.11.5
-poetry install
+poetry shell
+poetry install --no-root
 ```
 
-## Testing the project set up
-Before test the project, make sure that you have installed duckdb properly. To do that, check if you have the duckdb in your terminal.
+## Testing
 
 In the terminal:
 ```bash
