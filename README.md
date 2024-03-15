@@ -21,7 +21,7 @@ Following this, the project leverages dbt (data build tool) to retrieve data fro
     - :white_check_mark: Create the app.py to execute the application
     - :white_check_mark: Test the upload
 - :white_check_mark: **Transform the CSV files into Parquet files**: Implement the necessary procedures to transform CSV files into Parquet files.
-- [ ] **Save the Parquet files into AWS S3 Bucket**: Set up mechanisms to save the Parquet files into the designated AWS S3 Bucket.
+- :white_check_mark: **Save the Parquet files into AWS S3 Bucket**: Set up mechanisms to save the Parquet files into the designated AWS S3 Bucket.
 - [ ] **Establish the dbt project**: Initiate the creation of the dbt project for seamless data management.
 - [ ] **Extract data from AWS S3 Bucket Parquet files into DuckDB using dbt**: Utilize dbt to extract and process data from AWS S3 Bucket Parquet files into DuckDB.
 - [ ] **Create the transactions table from the appended files**: Develop the transactions table based on the processed files.
